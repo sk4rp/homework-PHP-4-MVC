@@ -1,18 +1,24 @@
 <?php
+require 'vendor/autoload.php';
 
-?>
+use Philo\Blade\Blade;
+use App\Controllers\PageController;
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="public/css/style.css">
-    <title>Welcome page</title>
-</head>
-<body>
-    <h1>Hello world</h1>
-</body>
-</html>
+$views = __DIR__ . '/app/Views';
+$cache = __DIR__ . '/cache';
+
+const ABOUT_URL = '/about';
+const CONTACTS_URL = '/contacts';
+
+$blade = new Blade($views, $cache);
+
+$pageController = new PageController();
+
+if ($_SERVER['REQUEST_URI'] === ABOUT_URL) {
+    echo $blade->view()->make('about')->render();
+} elseif ($_SERVER['REQUEST_URI'] === CONTACTS_URL) {
+    echo $blade->view()->make('contacts')->render();
+} else {
+    echo "Page not found";
+}
+
