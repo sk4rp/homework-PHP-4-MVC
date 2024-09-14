@@ -1,10 +1,22 @@
 {
-    "require": {
-        "philo/laravel-blade": "^3.1"
-    },
-    "config": {
-        "allow-plugins": {
-            "kylekatarnls/update-helper": true
-        }
+  "require": {
+    "philo/laravel-blade": "^3.1",
+    "illuminate/view": "^5.8",
+    "illuminate/events": "^5.8"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+  "config": {
+    "allow-plugins": {
+      "kylekatarnls/update-helper": true
     }
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "App\\Controllers\\": "app/Controllers/",
+      "App\\Views\\": "app/Views/"
+    }
+  }
 }
