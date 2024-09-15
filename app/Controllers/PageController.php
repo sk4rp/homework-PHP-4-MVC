@@ -38,6 +38,7 @@ class PageController
             'content' => 'This is the contact page content'
         ])->render();
     }
+    
     public function phpInfo(): void
     {
         phpinfo();
